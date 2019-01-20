@@ -19,46 +19,63 @@ compteur:number = 0;
                       like:0,
                       dislike:0
                     },
+                    price:0,
+                    date:new Date(),
+                    description:""
                   };
+                  
   courses = [{
                 id:1,
                 title:"Spring boot",
                 active:true,
                 favoris:false,
+                price:1.20,
+                date:new Date(),
                 vote:{
                   like:0,
                   dislike:0
                 },
+                description:"Lorem Ipsum  Lorem Ipsum HSkjds dezoke Lorem Ipsum HSkjds dezokeHSkjds dezoke"
               },
               {
                 id:2,
                 title:"Scala",
                 active:true,
                 favoris:false,
+                price:10.25,
+                date:new Date(),
                 vote:{
                   like:0,
                   dislike:0
                 },
+                description:"Lorem Ipsum  Lorem Ipsum HSkjds dezoke Lorem Ipsum HSkjds dezokeHSkjds dezoke"
+
               },
               {
                 id:3,
                 title:"Haskell",
                 active:false,
                 favoris:false,
+                price:11.25,
+                date:new Date(),
                 vote:{
                   like:0,
                   dislike:0
                 },
+                description:"Lorem Ipsum  Lorem Ipsum HSkjds dezoke Lorem Ipsum HSkjds dezokeHSkjds dezoke"
               },
               {
                 id:4,
                 title:"C/C++",
                 active:true,
                 favoris:false,
+                price:90.25,
+                date:new Date(),
                 vote:{
                   like:0,
                   dislike:0
                 },
+                description:"Lorem Ipsum  Lorem Ipsum HSkjds dezoke Lorem Ipsum HSkjds dezokeHSkjds dezoke"
               }
             ];
 
@@ -69,10 +86,13 @@ compteur:number = 0;
       title:"",
       active:false,
       favoris:false,
+      price:0,
+      date:new Date(),
       vote:{
         like:0,
         dislike:0
       },
+      description:"loremlorem Ipsum lorem  lorem Ipsum lorem  Ipsum lorem "
     };
   }
   deleteCourse(course){
@@ -116,12 +136,11 @@ compteur:number = 0;
   starOnOff(course){
     course.favoris=!course.favoris;
   }
-  updateVote(course,child){
-    if(child.status){
-      course.vote.like=child.value;
-    } else{
-      course.vote.dislike=child.value;
-    }
+  updateVoteLike(course,child){
+      course.vote.like=child;
+   }
+   updateVoteDislike(course,child){
+     course.vote.dislike=child;
    }
  
 }

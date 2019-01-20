@@ -8,7 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { Content1Component } from './content1/content1.component';
 import { Content2Component } from './content2/content2.component';
 import {FormsModule} from '@angular/forms';
-import { VotesComponent } from './votes/votes.component'
+import { VotesComponent } from './votes/votes.component';
+import { ExtraitPipe } from './extrait.pipe'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { VotesComponent } from './votes/votes.component'
     FooterComponent,
     Content1Component,
     Content2Component,
-    VotesComponent
+    VotesComponent,
+    ExtraitPipe
   ],
   imports: [
     BrowserModule,FormsModule

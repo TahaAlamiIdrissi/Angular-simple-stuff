@@ -50,12 +50,15 @@
                     }">
             <i class="fa fa-power-off"></i>
         </button>&nbsp;
+
        <app-votes [like]="course.vote.like" [dislike]="course.vote.dislike"
-                  (changeVote)="updateVote(course,$event)"> 
-       ></app-votes>
-       
-        
-        {{course.title}}
+                  (changeVoteLike)="updateVoteLike(course,$event)"
+                  (changeVoteDislike)="updateVoteDislike(course,$event)"></app-votes>
+
+        {{course.title}} - {{course.price | currency : 'EUR'  }} - {{course.date | date:'dd/MM/yyyy'}}
+        {{course.description | extrait:'20'}}
+
+
             <div class="text-right">
                     <button class=" btn btn-warning btn-sm  mb-1" (click)="editCourse(course)">
                         <i class="fa fa-pencil"></i>

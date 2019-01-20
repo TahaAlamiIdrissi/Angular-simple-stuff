@@ -10,7 +10,9 @@ export class VotesComponent implements OnInit {
   @Input('like') like = 0;
   @Input('dislike') dislike = 0;
 
-  @Output('changeVote') changeVote= new EventEmitter();
+  @Output('changeVoteLike') changeVoteLike= new EventEmitter();
+  @Output('changeVoteDislike') changeVoteDislike= new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -18,11 +20,11 @@ export class VotesComponent implements OnInit {
 
   thumbsUp(){
     this.like++;
-    this.changeVote.emit({ status:1, value:this.like});
+    this.changeVoteLike.emit(this.like);
   }
   thumbsDown(){
     this.dislike++;
-    this.changeVote.emit({ status:0, value:this.dislike});
+    this.changeVoteDislike.emit(this.dislike);
 
 
   }
