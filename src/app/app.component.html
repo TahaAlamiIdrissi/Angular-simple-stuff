@@ -1,0 +1,74 @@
+<!-- <app-navbar></app-navbar>
+
+    <div class="row">
+        <div class="col-md-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-8">
+            <app-content1></app-content1>
+            <hr>
+            <app-content2></app-content2>
+        </div>
+    </div>
+
+<hr>
+<app-footer></app-footer> -->
+
+<h1>{{title}}</h1>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+                <input class="form-control" placeholder="New Course "
+                 [(ngModel)]="currentCourse.title" (keyup.enter)="addCourse()" >
+                
+        </div>
+    </div>
+    
+    <button *ngIf="!onUpdate"
+     class="btn btn-primary btn-block mt-1" (click)="addCourse()" >
+            Add
+        </button>
+        <button *ngIf="onUpdate"
+        class="btn btn-warning btn-block mt-1" (click)="updateCourse()" >
+                Update
+        </button>
+</div>
+<hr>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let course of courses" >
+        <button class=" btn btn-sm btn-success" (click)="toggleButton(course)"
+        [ngClass]="{
+                        'btn-success':course.active,
+                        'btn-danger':!course.active
+                    }">
+            <i class="fa fa-power-off"></i>
+        </button>
+        {{course.title}}
+            <div class="text-right">
+                    <button class=" btn btn-warning btn-sm  mb-1" (click)="editCourse(course)">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-danger btn-sm  mb-1" (click)="deleteCourse(course)">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+    </li>
+</ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div *ngIf="courses.length;then hasCourse else noCourse"> 
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #hasCourse>
+        <div class="alert alert-success">we have {{courses.length}} course .</div>
+    </ng-template>
+    <ng-template #noCourse>
+            <div class="alert alert-danger">we have {{courses.length}} course .</div>
+    </ng-template>    
