@@ -8,32 +8,57 @@ import Swal from 'sweetalert2';
 })
 export class AppComponent {
   title = 'formationAngular';
-  onUpdate=false;
-
+  onUpdate = false;
+compteur:number = 0;
   currentCourse = {
                     id:0,
                     title:"",
-                    active:false
+                    active:false,
+                    favoris:false,
+                    vote:{
+                      like:0,
+                      dislike:0
+                    },
                   };
   courses = [{
                 id:1,
                 title:"Spring boot",
-                active:true
+                active:true,
+                favoris:false,
+                vote:{
+                  like:0,
+                  dislike:0
+                },
               },
               {
                 id:2,
                 title:"Scala",
-                active:true
+                active:true,
+                favoris:false,
+                vote:{
+                  like:0,
+                  dislike:0
+                },
               },
               {
                 id:3,
                 title:"Haskell",
-                active:false
+                active:false,
+                favoris:false,
+                vote:{
+                  like:0,
+                  dislike:0
+                },
               },
               {
                 id:4,
                 title:"C/C++",
-                active:true
+                active:true,
+                favoris:false,
+                vote:{
+                  like:0,
+                  dislike:0
+                },
               }
             ];
 
@@ -42,7 +67,12 @@ export class AppComponent {
     this.currentCourse={
       id:0,
       title:"",
-      active:false
+      active:false,
+      favoris:false,
+      vote:{
+        like:0,
+        dislike:0
+      },
     };
   }
   deleteCourse(course){
@@ -83,4 +113,15 @@ export class AppComponent {
   toggleButton(course){
     course.active=!course.active;
   }
+  starOnOff(course){
+    course.favoris=!course.favoris;
+  }
+  updateVote(course,child){
+    if(child.status){
+      course.vote.like=child.value;
+    } else{
+      course.vote.dislike=child.value;
+    }
+   }
+ 
 }

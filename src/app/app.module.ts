@@ -7,7 +7,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { Content1Component } from './content1/content1.component';
 import { Content2Component } from './content2/content2.component';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { VotesComponent } from './votes/votes.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {FormsModule} from '@angular/forms'
     SidebarComponent,
     FooterComponent,
     Content1Component,
-    Content2Component
+    Content2Component,
+    VotesComponent
   ],
   imports: [
     BrowserModule,FormsModule

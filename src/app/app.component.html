@@ -31,19 +31,30 @@
         </button>
         <button *ngIf="onUpdate"
         class="btn btn-warning btn-block mt-1" (click)="updateCourse()" >
-                Update
+            Update
         </button>
 </div>
 <hr>
 <ul class="list-group">
     <li class="list-group-item" *ngFor="let course of courses" >
+
+            <i class="fa" [ngClass]="{
+                'fa-star':course.favoris,
+                'fa-star-o':!course.favoris
+            }" (click)="starOnOff(course)"></i>
+            &nbsp;
         <button class=" btn btn-sm btn-success" (click)="toggleButton(course)"
         [ngClass]="{
                         'btn-success':course.active,
                         'btn-danger':!course.active
                     }">
             <i class="fa fa-power-off"></i>
-        </button>
+        </button>&nbsp;
+       <app-votes [like]="course.vote.like" [dislike]="course.vote.dislike"
+                  (changeVote)="updateVote(course,$event)"> 
+       ></app-votes>
+       
+        
         {{course.title}}
             <div class="text-right">
                     <button class=" btn btn-warning btn-sm  mb-1" (click)="editCourse(course)">
@@ -55,6 +66,21 @@
                         <i class="fa fa-trash"></i>
                     </button>
                 </div>
+                
+                <!-- <div class="text-right">
+                        <button class="btn btn-success btn-sm  mb-1" (click)="thumbsUp(course)">
+                            <i class="fa fa-thumbs-up"></i>
+                            {{course.compteur}}
+                        </button>
+                    </div>
+                    <div class="text-right">
+                            <button class="btn btn-danger btn-sm  mb-1"  (click)="thumbsDown(course)">
+                                <i class="fa fa-thumbs-down" ></i>
+                                {{!course.compteur}}
+                            </button>
+                        </div> -->
+                        
+                        
     </li>
 </ul>
 
