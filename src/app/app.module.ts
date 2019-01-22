@@ -12,16 +12,16 @@ import { VotesComponent } from './votes/votes.component';
 import { ExtraitPipe } from './extrait.pipe';
 import { PostsComponent } from './posts/posts.component';
 import {HttpClientModule} from '@angular/common/http';
-import {RouterModule,Routes, Router} from '@angular/router';
+import {RouterModule, Routes, Router} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CoursesComponent } from './courses/courses.component';
 
-const routes:Routes = [
-  {path: "", redirectTo: '/posts', pathMatch: 'full'},
-  {path:"courses",component:CoursesComponent},
-  { path:"posts", component: PostsComponent },
-  { path:"**", component: PageNotFoundComponent }
-]
+const routes: Routes = [
+  {path: '', redirectTo: '/posts', pathMatch: 'full'},
+  {path: 'courses', component: CoursesComponent},
+  { path: 'posts', component: PostsComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 
 
